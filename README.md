@@ -10,4 +10,5 @@ YOLO
 - YOLO란?
 - 
 - 관련주소
+  https://velog.io/@hhhong/Object-Detection-with-YOLO
 
