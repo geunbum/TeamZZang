@@ -19,56 +19,7 @@ output_layers = [layer_name[i - 1] for i in net.getUnconnectedOutLayers()]
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 # 이미지 로드
-img = cv2.imread("C:/Users/kimgu/Opensource Teamproject/TeamZZang/Image2.jpg")
-img = cv2.resize(img, None, fx=0.4, fy=0.4)
-height, width, channels = img.shape
-
-# 새로운 이미지 크기 계산
-scale_percent = 20
-width = int(img.shape[1] * scale_percent / 100)
-height = int(img.shape[0] * scale_percent / 100)
-dim = (width, height)
-
-# 크기 조정
-resized_img = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
-height, width, channels = resized_img.shape
-
-# 이미지를 블롭으로 변환 (YOLO 네트워크에 입력하기 위한 전처리)
-blob = cv2.dnn.blobFromImage(resized_img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
-net.setInput(blob)  # 네트워크에 블롭 입력
-
-# 네트워크 순방향 실행 (출력 레이어를 통한 예측)
-outs = net.forward(output_layers)
-
-# 예측된 바운딩 박스와 관련 정보 초기화
-class_ids = []
-confidences = []
-boxes = []
-
-import numpy as np
-import cv2
-
-# YOLO 네트워크 가중치와 구성 파일 로드
-net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
-
-# 클래스 이름 로드
-classes = []
-with open("coco.names", "r") as f:
-    classes = [line.strip() for line in f.readlines()]
-
-# 네트워크의 모든 레이어 이름 가져오기
-layer_name = net.getLayerNames()
-
-# 출력 레이어 이름 가져오기
-output_layers = [layer_name[i - 1] for i in net.getUnconnectedOutLayers()]
-
-# 각 클래스에 대한 랜덤 색상 설정
-colors = np.random.uniform(0, 255, size=(len(classes), 3))
-
-# 이미지 로드
-img = cv2.imread("C:/Users/kimgu/Opensource Teamproject/TeamZZang/Image2.jpg")
-img = cv2.resize(img, None, fx=0.4, fy=0.4)
-height, width, channels = img.shape
+img = cv2.imread("Image2.jpg")
 
 # 새로운 이미지 크기 계산
 scale_percent = 20
