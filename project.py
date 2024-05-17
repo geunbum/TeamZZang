@@ -10,23 +10,33 @@ output_layers = [layer_name[i - 1] for i in net.getUnconnectedOutLayers()]
 
 colors= np.random.uniform(0, 255, size=(len(classes), 3))
 
-img = cv2.imread("Image2.jpg")
-img = cv2.resize(img, None, fx=0.4, fy=0.4)
-height, width, channels = img.shape
+img = cv2.imread("Image.jpg")
 
-blob = cv2.dnn.blobFromImage(img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
+# 새로운 이미지 크기 계산
+scale_percent = 20
+width = int(img.shape[1] * scale_percent / 100)
+height = int(img.shape[0] * scale_percent / 100)
+dim = (width, height)
+
+# 크기 조정
+resized_img = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
+
+height, width, channels = resized_img.shape
+
+blob = cv2.dnn.blobFromImage(resized_img, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
 net.setInput(blob)
 outs = net.forward(output_layers)
 
 class_ids = []
 confidences = []
 boxes = []
+
 for out in outs:
     for detection in out:
         scores = detection[5:]
         class_id = np.argmax(scores)
         confidence = scores[class_id]
-        if confidence > 0.5:
+        if confidence > 0.05:
             center_x = int(detection[0] * width)
             center_y = int(detection[1] * height)
             w = int(detection[2] * width)
@@ -44,9 +54,9 @@ for i in indexes:
     x, y, w, h = boxes[i]
     label = str(classes[class_ids[i]])
     color = colors[i]
-    cv2.rectangle(img, (x, y), (x + w, y + h), color, 2)
-    cv2.putText(img, label, (x, y + 30), font, 3, color, 3)
-cv2.imshow("Image", img)
+    cv2.rectangle(resized_img, (x, y), (x + w, y + h), color, 2)
+    cv2.putText(resized_img, label, (x, y + 30), font, 3, color, 3)
+    
+cv2.imshow("Image", resized_img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
-
