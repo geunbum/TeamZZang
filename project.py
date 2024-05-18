@@ -1,5 +1,5 @@
 import numpy as np
-import cv2
+import cv2, os
 
 # YOLO 네트워크 가중치와 구성 파일 로드
 net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
