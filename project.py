@@ -19,7 +19,8 @@ output_layers = [layer_name[i - 1] for i in net.getUnconnectedOutLayers()]
 colors = np.random.uniform(0, 255, size=(len(classes), 3))
 
 # 이미지 로드
-img = cv2.imread("Image2.jpg")
+image_filename = "Image1.jpg"       # 불러올 이미지를 'image_filename'에 저장
+img = cv2.imread(image_filename)    # 이미지 로드
 
 # 새로운 이미지 크기 계산
 scale_percent = 20
@@ -73,6 +74,42 @@ for i in indexes:
     color = colors[class_ids[i]]
     cv2.rectangle(resized_img, (x, y), (x + w, y + h), color, 2)  # 박스 그리기
     cv2.putText(resized_img, label, (x, y + 30), font, 3, color, 3)  # 라벨 그리기
+
+## 인식된 이미지 저장
+# 현재 스크립트가 위치한 디렉토리 파일을 불러옴
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# "Output_Image"라는 폴더가 현재 스크립트 디렉토리 파일 안에 위치하도록 함
+output_folder = os.path.join(script_dir, "Output_Images")
+if not os.path.exists(output_folder):   # "Output_Image"라는 폴더가 존재하는지 확인
+    os.makedirs(output_folder)          # 존재 하지 않으면 폴더를 생성
+
+# 로드 한 이미지의 파일 확장자의 이름만 추출해 저장
+base_name = os.path.splitext(os.path.basename(image_filename))[0]
+
+# output_folder 안에 있는 모든 파일과 폴더 이름을 리스트로 반환하고 저장
+existing_files = os.listdir(output_folder)
+
+# 리스트에서 파일 이름이 "Result Image" 항목들을 필터링하고 조건을 만족하면 result_files 리스트에 추가
+result_files = [filename for filename in existing_files if filename.startswith("Result {base_name}")]
+
+# existing_files 리스트에서 "Result Image"로 시작하는 파일들을 찾기
+if existing_files:
+    # 이미지 이름과 베이스 이름이 일치하는 파일의 목록을 저장
+    matching_files = [filename for filename in existing_files if filename.startswith(f"Result {base_name}")]
+    if matching_files:  # 숫자를 추출하여 가장 큰 값을 last_filename에 저장
+        last_filename = max([int(filename.split(f"Result {base_name}")[1].split(".")[0]) for filename in matching_files])
+    else:               # matching_files가 비어있으면 0으로 설정
+        last_filename = 0
+
+else:                   # existing_files이 비어있으면 0으로 설정
+    last_filename = 0
+
+# "Result Image"이라는 중복되지 않는 이미지 저장
+filename = os.path.join(output_folder, f"Result {base_name} {last_filename + 1}.jpg")
+
+cv2.imwrite(filename, resized_img)      # 이미지 저장
+
 
 # 결과 이미지 표시
 cv2.imshow("Image", resized_img)
