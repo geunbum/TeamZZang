@@ -67,7 +67,7 @@ indexes = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
 font = cv2.FONT_HERSHEY_PLAIN
 for i in indexes:
     x, y, w, h = boxes[i]
-    label = str(classes[class_ids[i]])
+    label = f"{classes[class_ids[i]]}: {confidences[i] * 100:.2f}%"     # 감지 신뢰도 확률
     color = np.random.randint(0, 255, size=(3,)).tolist()               # 색상 랜덤 지정
     cv2.rectangle(resized_img, (x, y), (x + w, y + h), color, 2)        # 박스 그리기
     text_size = cv2.getTextSize(label, font, 2.5, 3)[0]
