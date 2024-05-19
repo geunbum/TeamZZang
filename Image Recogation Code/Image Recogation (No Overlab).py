@@ -15,9 +15,6 @@ layer_name = net.getLayerNames()
 # 출력 레이어 이름 가져오기
 output_layers = [layer_name[i - 1] for i in net.getUnconnectedOutLayers()]
 
-# 각 클래스에 대한 랜덤 색상 설정
-colors = np.random.uniform(0, 255, size=(len(classes), 3))
-
 # 이미지 로드
 image_filename = "Image1.jpg"       # 불러올 이미지를 'image_filename'에 저장
 img = cv2.imread(image_filename)    # 이미지 로드
@@ -71,9 +68,11 @@ font = cv2.FONT_HERSHEY_PLAIN
 for i in indexes:
     x, y, w, h = boxes[i]
     label = str(classes[class_ids[i]])
-    color = colors[class_ids[i]]
-    cv2.rectangle(resized_img, (x, y), (x + w, y + h), color, 2)  # 박스 그리기
-    cv2.putText(resized_img, label, (x, y + 30), font, 3, color, 3)  # 라벨 그리기
+    color = np.random.randint(0, 255, size=(3,)).tolist()               # 색상 랜덤 지정
+    cv2.rectangle(resized_img, (x, y), (x + w, y + h), color, 2)        # 박스 그리기
+    text_size = cv2.getTextSize(label, font, 2.5, 3)[0]
+    text_y = y - 10 if y - 10 > 10 else y + 30                          # 텍스트 상자 위에 표시
+    cv2.putText(resized_img, label, (x, text_y), font, 2.5, color, 3)   # 라벨 그리기
 
 ## 인식된 이미지 저장
 # 현재 스크립트가 위치한 디렉토리 파일을 불러옴
