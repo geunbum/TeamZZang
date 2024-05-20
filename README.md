@@ -19,7 +19,7 @@ YOLO
    3. 기존의 모델보다 빠른 성능으로 실시간 객체 검출이 가능합니다.
   빠르고 간단한 장점이 있지만, 작은 객체의 인식률이 떨어진다는 단점도 있습니다.
 
-###- 관련주소
+### - 관련주소
 #### https://velog.io/@hhhong/Object-Detection-with-YOLO
 #### https://brunch.co.kr/@aischool/11
 
