@@ -25,4 +25,5 @@ YOLO
 
 
 - yolov3.weights 파일 다운로드 주소
-https://drive.google.com/file/d/1gglYx1BXLOFQ0ettKLMpozoc6In8G2xq/view
+- https://drive.google.com/file/d/1gglYx1BXLOFQ0ettKLMpozoc6In8G2xq/view
+- https://github.com/patrick013/Object-Detection---Yolov3/blob/master/model/yolov3.weights
