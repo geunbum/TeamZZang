@@ -22,3 +22,7 @@ YOLO
 - 관련주소
   https://velog.io/@hhhong/Object-Detection-with-YOLO
   https://brunch.co.kr/@aischool/11
+
+
+-yolov3.weights 파일 다운로드 주소
+https://drive.google.com/file/d/1gglYx1BXLOFQ0ettKLMpozoc6In8G2xq/view
