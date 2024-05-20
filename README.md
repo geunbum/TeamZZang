@@ -6,8 +6,8 @@ Photo & Video Object Recognition 오픈소스소프트웨어.
  사람은 사진 또는 비디오를 볼 때 인물, 물체, 장면 및 시각적 세부 사항을 쉽게 알아챌 수 있습니다.
 - 객체 인식하지 못한 사진 or 영상, 객체 인식된 사진 or 영상
 
-- 관련주소
-  https://kr.mathworks.com/solutions/image-video-processing/object-recognition.html
+### - 관련주소
+#### https://kr.mathworks.com/solutions/image-video-processing/object-recognition.html
 
 
 YOLO
@@ -19,9 +19,9 @@ YOLO
    3. 기존의 모델보다 빠른 성능으로 실시간 객체 검출이 가능합니다.
   빠르고 간단한 장점이 있지만, 작은 객체의 인식률이 떨어진다는 단점도 있습니다.
 
-- 관련주소
-  https://velog.io/@hhhong/Object-Detection-with-YOLO
-  https://brunch.co.kr/@aischool/11
+###- 관련주소
+#### https://velog.io/@hhhong/Object-Detection-with-YOLO
+#### https://brunch.co.kr/@aischool/11
 
 
 ### yolov3.weights 파일 다운로드 주소
