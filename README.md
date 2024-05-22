@@ -22,9 +22,10 @@ Yolo 설치 가이드
   사람은 사진 또는 비디오를 볼 때 인물, 물체, 장면 및 시각적 세부 사항을 쉽게 알아챌 수 있습니다.
 
 ## 예시 이미지
+### 원본 이미지
   ![원본사진](Image%20File/Image1.jpg)
   img src="Image%20File/Image1.jpg" alt="원본사진" width="300" height="200">
-> 출력시 이미지
+### 출력시 이미지
   ![검출사진](Saved%20Images/Save Image1.jpg)
   img src="Saved%20Images/Save Image1.jpg" alt="검출사진" width="300" height="200">
 > 참고 자료
