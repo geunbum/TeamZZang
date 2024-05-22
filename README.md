@@ -24,14 +24,17 @@ Yolo 설치 가이드
 ## 예시 이미지
 ### 원본 이미지
   <img src="Image%20File/Image1.jpg" alt="원본사진" width="300" height="200">
+
 ### 출력시 이미지
   <img src="Saved_Images/Save%20Image1.jpg" alt="검출사진" width="300" height="200">
 > 참고 자료
+
   * #### https://velog.io/@hhhong/Object-Detection-with-YOLO
   * #### https://brunch.co.kr/@aischool/11
   * #### https://kr.mathworks.com/solutions/image-video-processing/object-recognition.html
 
 ## 내 컴퓨터에 OpenCV 설치하자
+
 * [Window에 OpenCV 설치](https://docs.opencv.org/3.4.3/d5/de5/tutorial_py_setup_in_windows.html)
 * [Linux나 Mac에 OpenCV 설치](https://docs.opencv.org/4.0.0-beta/d2/de6/tutorial_py_setup_in_ubuntu.html)
 
@@ -137,6 +140,7 @@ def load_image():
 #### 이미지 출처
  ![Image1] <a href="https://www.pexels.com/ko-kr/photo/1108099/"> 출처 Pexels/Chevanon Photography </a>
  ![Image2] <a href="https://www.pexels.com/ko-kr/photo/8916937/"> 출처 Pexels/Lu Li </a>
+ 
 ### - 관련주소
 #### https://kr.mathworks.com/solutions/image-video-processing/object-recognition.html
 
