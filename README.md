@@ -20,9 +20,9 @@ Yolo 설치 가이드
   객체 인식은 딥러닝과 머신 러닝 알고리즘을 통해 산출되는 핵심 기술입니다.
   사람은 사진 또는 비디오를 볼 때 인물, 물체, 장면 및 시각적 세부 사항을 쉽게 알아챌 수 있습니다.
 > 예시 이미지
-  ! (img src="Image File/Image2.jpg", alt="원본사진" width="300")
+  ![원본사진]("Image File/Image1.jpg", width="300")
 > 출력시 이미지
-  ! (img src="Saved_Images/Save Image2.jpg", alt="검출사진" width="300")
+  ![검출사진]("Saved_Images/Save Image1.jpg", width="300")
 > 참고 자료
   * #### https://velog.io/@hhhong/Object-Detection-with-YOLO
   * #### https://brunch.co.kr/@aischool/11
@@ -126,10 +126,10 @@ def load_image():
         cv2.putText(resized_img, label, (x, text_y), font, 1.5, color, 3)   # 라벨 그리기
 ```
 #### 원본 사진
-!(img src="Image File/Image1.jpg", alt="원본사진" width="300")
+![원본사진]("Image File/Image2.jpg", width="300")
 
 #### 검출된 사진
-!(img src="Saved_Images/Save Image1.jpg", alt="검출사진" width="300")
+![검출사진]("Saved_Images/Save Image2.jpg", width="300")
 
 #### 이미지 출처
 * <a href=""> 출처 </a>
