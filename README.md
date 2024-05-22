@@ -23,9 +23,9 @@ Yolo 설치 가이드
 
 ## 예시 이미지
 ### 원본 이미지
-  ![원본사진]<img src="Image%20File/Image1.jpg" alt="원본사진" width="300" height="200">
+  <img src="Image%20File/Image1.jpg" alt="원본사진" width="300" height="200">
 ### 출력시 이미지
-  ![검출사진]<img src="Saved_Images/Save%20Image1.jpg" alt="검출사진" width="300" height="200">
+  <img src="Saved_Images/Save%20Image1.jpg" alt="검출사진" width="300" height="200">
 > 참고 자료
   * #### https://velog.io/@hhhong/Object-Detection-with-YOLO
   * #### https://brunch.co.kr/@aischool/11
@@ -129,10 +129,10 @@ def load_image():
         cv2.putText(resized_img, label, (x, text_y), font, 1.5, color, 3)   # 라벨 그리기
 ```
 #### 원본 이미지
-  ![원본사진]<img src="Image%20File/Image2.jpg" alt="원본사진" width="300" height="200">
+  <img src="Image%20File/Image2.jpg" alt="원본사진" width="300" height="200">
   
 #### 출력시 이미지
-  ![검출사진]<img src="Saved_Images/Save%20Image2.jpg" alt="검출사진" width="300" height="200">
+  <img src="Saved_Images/Save%20Image2.jpg" alt="검출사진" width="300" height="200">
 
 #### 이미지 출처
  ![Image1] <a href="https://www.pexels.com/ko-kr/photo/1108099/"> 출처 Pexels/Chevanon Photography </a>
