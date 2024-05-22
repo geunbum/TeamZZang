@@ -1,4 +1,5 @@
-# Yolo를 이용한 Object Recognition
+## 이미지 & 영상 객체 인식 및 검출
+> Yolo 모델을 사용하여 OpenCV로 인식 및 검출
 
 YOLO란?
 > YOLO(You Only Look Once)는 물체 검출(Object Detection)에서 대표적인 딥러닝 모델이라고 할 수 있습니다. 물체 검출(Object Detection)은 이미지 내에 존재하는 물체를 찾고, 이들을 구분하는 기술입니다. 영상처리나 CV분야에서 기본적이고 또 많이 쓰는 기법입니다. YOLO(You Only Look Once)모델은 말 그대로 이미지를 한번만 보고 바로 물체를 검출하는 딥러닝 기술을 이용한 물체 검출 모델입니다.
@@ -21,9 +22,11 @@ Yolo 설치 가이드
   사람은 사진 또는 비디오를 볼 때 인물, 물체, 장면 및 시각적 세부 사항을 쉽게 알아챌 수 있습니다.
 
 ## 예시 이미지
-  ![원본사진]("Image File/Image1.jpg", width="300")
+  ![원본사진](Image%20File/Image1.jpg)
+  img src="Image%20File/Image1.jpg" alt="원본사진" width="300" height="200">
 > 출력시 이미지
-  ![검출사진]("Saved_Images/Save Image1.jpg", width="300")
+  ![검출사진](Saved%20Images/Save Image1.jpg)
+  img src="Saved%20Images/Save Image1.jpg" alt="검출사진" width="300" height="200">
 > 참고 자료
   * #### https://velog.io/@hhhong/Object-Detection-with-YOLO
   * #### https://brunch.co.kr/@aischool/11
