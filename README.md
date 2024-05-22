@@ -4,12 +4,13 @@ Photo & Video Object Recognition 오픈소스소프트웨어.
 - 객체 인식은 이미지 또는 비디오 상의 객체를 식별하는 컴퓨터 비전 기술입니다.
  객체 인식은 딥러닝과 머신 러닝 알고리즘을 통해 산출되는 핵심 기술입니다.
  사람은 사진 또는 비디오를 볼 때 인물, 물체, 장면 및 시각적 세부 사항을 쉽게 알아챌 수 있습니다.
-- ![Image1](https://github.com/geunbum/TeamZZang/assets/162940362/640f00f5-ac1f-417f-bc2e-f43492f1536c)
-- ![Image2](https://github.com/geunbum/TeamZZang/assets/162940362/5f649557-3dab-4b1f-88e6-0cfb650763ee)
-- <img width="1035" alt="스크린샷 2024-05-20 오후 2 54 06" src="https://github.com/geunbum/TeamZZang/assets/162940362/56632911-6747-490f-8c32-fa1c4c9b102f">
-- <img width="914" alt="스크린샷 2024-05-20 오후 2 57 24" src="https://github.com/geunbum/TeamZZang/assets/162940362/40236107-ab61-4ddf-b647-cd6c37bf4a7e">
+ ![Image1](https://github.com/geunbum/TeamZZang/assets/162940362/640f00f5-ac1f-417f-bc2e-f43492f1536c)
+ ![Image2](https://github.com/geunbum/TeamZZang/assets/162940362/5f649557-3dab-4b1f-88e6-0cfb650763ee)
+ <img width="1035" alt="스크린샷 2024-05-20 오후 2 54 06" src="https://github.com/geunbum/TeamZZang/assets/162940362/56632911-6747-490f-8c32-fa1c4c9b102f">
+ <img width="914" alt="스크린샷 2024-05-20 오후 2 57 24" src="https://github.com/geunbum/TeamZZang/assets/162940362/40236107-ab61-4ddf-b647-cd6c37bf4a7e">
 
-
+### 영상 용량 issues로 인해 drive에서 download 필요. download URL첨부.
+#### - https://drive.google.com/drive/folders/1UYnaQl8TxbhT_N_G87bfaLa5n8CEBEij?usp=share_link
 
 
 
@@ -30,7 +31,7 @@ YOLO
 #### https://velog.io/@hhhong/Object-Detection-with-YOLO
 #### https://brunch.co.kr/@aischool/11
 
-
-### yolov3.weights 파일 다운로드 주소
+### Yolov3.weights 파일이 깨지는 issues가 생겨 download URL첨부. (두 URL 중 하나 선택해서 download) 
+### yolov3.weights 다운로드 URL
 #### https://drive.google.com/file/d/1gglYx1BXLOFQ0ettKLMpozoc6In8G2xq/view
 #### https://github.com/patrick013/Object-Detection---Yolov3/blob/master/model/yolov3.weights
