@@ -133,11 +133,12 @@ def load_image():
         text_y = y - 10 if y - 10 > 10 else y + 30                          # 텍스트 상자 위에 표시
         cv2.putText(resized_img, label, (x, text_y), font, 1.5, color, 3)   # 라벨 그리기
 ```
-#### 원본 이미지
-  <img src="Image%20File/Image2.jpg" alt="원본사진" width="300" height="200">
-  
-#### 출력시 이미지
-  <img src="Saved_Images/Save%20Image2.jpg" alt="검출사진" width="300" height="200">
+#### 원본 이미지 / 출력시 이미지
+<figure class="half">  
+  <a href="link"><img src="Image%20File/Image2.jpg" alt="원본사진" width="300" height="200">
+  <a href="link"><img src="Saved_Images/Save%20Image2.jpg" alt="검출사진" width="300" height="200">
+  <figcaption></figcaption>
+</figure>
 
 #### 비디오 로드
 ```bash
