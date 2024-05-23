@@ -231,27 +231,101 @@ def update_frame():
                 text = "{} : {:.2f}%".format(classes[class_ids[i]], confidences[i] * 100)   # 텍스트
                 y = y - 15 if y - 15 > 15 else y + 15                                       # 텍스트 상자 위에 표시
                 cv2.putText(frame, text, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)   # 라벨 그리기
-
-
-        # display 실행
-        display_frame(frame)
-
-        # 현재 프레임에 맞게 슬라이더 위치 업데이트
-        current_frame = int(vs.get(cv2.CAP_PROP_POS_FRAMES))
-        slider.set(current_frame)
-
-    # 현재 재생 시간 업데이트
-    current_time = int(current_frame / original_fps)
-    time_str = "{:02d}:{:02d}".format(current_time // 60, current_time % 60)
-    time_label.config(text=time_str)
-
-    # 다음 프레임 재생 간격 설정 (원본 비디오의 FPS에 따라)
-    next_frame_delay = int(50 / original_fps)
-    root.after(next_frame_delay, update_frame)
 ```
-##### 원본 영상
+#### 원본 영상
 
-##### 출력시 영상
+#### 출력시 영상
+
+#### tkinter로 버튼 설정(이미지)
+```bash
+
+# refresh 버튼 설정
+refresh_button = tk.Button(root, text="Refresh", command=load_image, image=refresh_photo, compound=tk.BOTTOM, width=35, height=40, bg="white")
+refresh_button.pack(side=tk.LEFT, padx=20, pady=30)
+    
+# save 버튼 설정
+save_button = tk.Button(root, text="Save", command=saved_image, image=save_photo, compound=tk.BOTTOM, width=35, height=40, bg="white")
+save_button.pack(side=tk.RIGHT, padx=20, pady=30)
+```
+#### 이미지 버튼 설정
+
+#### tkinter로 버튼 설정(영상)
+```bash
+# tkinter 설정
+root = tk.Tk()
+root.title("Real-Time Object Detection")
+
+# 현재 시간을 나타낼 레이블
+time_label = tk.Label(root, text="00:00", font=("Helvetica", 12))
+time_label.pack()
+
+# backward 실행 함수 생성
+def backward():
+    global current_frame, backward_photo, backward_button
+    current_time = int(current_frame / fps)     # 시간 계산
+    current_time -= 3                           # 이동할 시간 (초) 조정
+    if current_time < 0:
+        current_time = 0
+    current_frame = int(current_time * fps)
+    vs.set(cv2.CAP_PROP_POS_FRAMES, current_frame)
+
+    # 이미지를 버튼에 설정
+    backward_button.config(image=backward_photo)
+
+# backward 버튼 나타내기
+backward_button = tk.Button(root, text=" -3 ", command=backward, image=backward_photo, compound=tk.BOTTOM, width=50, height=40, bg="white")
+backward_button.pack(side='left', padx=10, pady=10)
+
+# forward 실행 함수 생성
+def forward():
+    global current_frame
+    current_time = int(current_frame / fps)       # 시간 계산
+    current_time += 3                             # 이동할 시간 (초) 조정
+    if current_time > total_frames / fps:
+        current_time = total_frames / fps
+    current_frame = int(current_time * fps)
+    vs.set(cv2.CAP_PROP_POS_FRAMES, current_frame)
+
+# forward 버튼 나타내기
+forward_button = tk.Button(root, text=" +3 ", command=forward, image=forward_photo, compound=tk.BOTTOM, width=50, height=40, bg="white")
+forward_button.pack(side='right', padx=(10, 10))
+
+## 가운데 위치 시킬 버튼을 위해 프레임 생성
+center_frame = tk.Frame(root)
+center_frame.pack(expand=True)
+
+# play/stop 실행 함수 생성
+def toggle_pause():
+    global paused
+    paused = not paused
+    if paused:
+        # 버튼의 이미지를 stop 이미지로 변경
+        pause_button.config(image=play_photo, text="Play", compound=tk.BOTTOM)
+    else:
+        # 버튼의 이미지를 start 이미지로 변경
+        pause_button.config(image=stop_photo, text="Stop", compound=tk.BOTTOM)
+
+# play/stop 버튼 나타내기
+pause_button = tk.Button(center_frame, text="Stop", command=toggle_pause, image=stop_photo, compound=tk.BOTTOM, width=35, height=40, bg="white")
+pause_button.pack(side='left', expand=True)
+    
+# 이미지를 PhotoImage 객체로 변환
+restart_photo = ImageTk.PhotoImage(restart_image)
+
+# restart 실행 함수 생성
+def restart():
+    global current_frame, paused
+    current_frame = 0
+    vs.set(cv2.CAP_PROP_POS_FRAMES, current_frame)
+    paused = False
+    toggle_pause()
+    slider.set(current_frame)
+
+# restart 버튼 나타내기
+restart_button = tk.Button(center_frame, text="Restart", command=restart, image=restart_photo, compound=tk.BOTTOM, width=35, height=40, bg="white")
+restart_button.pack(side='left', padx=(10, 10))
+```
+#### 영상 버튼 생성
 
 #### 이미지 출처
  ![Image1] <a href="https://www.pexels.com/ko-kr/photo/1108099/"> 출처 Pexels/Chevanon Photography </a>
