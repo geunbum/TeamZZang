@@ -137,6 +137,122 @@ def load_image():
 #### 출력시 이미지
   <img src="Saved_Images/Save%20Image2.jpg" alt="검출사진" width="300" height="200">
 
+#### 비디오 로드
+```bash
+# 비디오 파일 열기
+vs = cv2.VideoCapture(video_path)
+
+# 비디오가 제대로 열렸는지 확인
+if not vs.isOpened():
+    print("Error: Could not open video file.")
+    exit()
+
+fps = vs.get(cv2.CAP_PROP_FPS)
+total_frames = int(vs.get(cv2.CAP_PROP_FRAME_COUNT))
+
+current_frame = 0
+paused = False
+
+W, H = None, None
+writer = None
+
+# 원본영상의 프레임
+original_fps = fps
+frame_buffer = []
+```
+
+#### 객체 인식 부분
+```bash
+# 프레임 생성
+def update_frame():
+    global current_frame, paused, vs, W, H, writer
+
+    # 영상이 멈춰 있지 않을때
+    if not paused:
+        ret, frame = vs.read()
+        if not ret:
+            return
+
+        if frame is None:   # None일 경우 종료
+            return 
+
+        # 이전 프레임과 현재 프레임의 중간값 구하기
+        if len(frame_buffer) > 0:
+            frame = cv2.addWeighted(frame, 0.5, frame_buffer[-1], 0.5, 0)
+
+        # 프레임 버퍼
+        frame_buffer.append(frame)
+        if len(frame_buffer) > 2:
+            frame_buffer.pop(0)
+
+        # 프레임 사이즈 재설정
+        frame = imutils.resize(frame, width=800)
+        if W is None or H is None:
+            (H, W) = frame.shape[:2]
+
+        # 이미지를 블롭으로 변환 (YOLO 네트워크에 입력하기 위한 전처리)
+        blob = cv2.dnn.blobFromImage(frame, 1 / 255.0, (416, 416), swapRB=True, crop=False)
+        net.setInput(blob)
+        layerOutputs = net.forward(net.getUnconnectedOutLayersNames())
+
+        # 예측된 바운딩 박스와 관련 정보 초기화
+        class_ids = []
+        confidences = []
+        boxes = []
+
+        # 네트워크의 모든 출력에 대해 반복
+        for output in layerOutputs:
+            for detection in output:
+                scores = detection[5:]          # 클래스 확률 가져오기
+                class_id = np.argmax(scores)    # 가장 높은 확률의 클래스 ID 가져오기
+                confidence = scores[class_id]   # 그 클래스의 확률 값
+
+                if confidence > 0.5:  # 신뢰도가 50% 이상인 경우에만 고려
+                    # 박스 중심 좌표, 너비, 높이 가져오기
+                    box = detection[0:4] * np.array([W, H, W, H])
+                    (centerX, centerY, width, height) = box.astype("int")
+                    x = int(centerX - (width / 2))  # 좌측 상단 x 좌표 계산
+                    y = int(centerY - (height / 2)) # 좌측 상단 y 좌표 계산
+                    # 박스, 신뢰도, 클래스 ID 저장
+                    boxes.append([x, y, int(width), int(height)])
+                    confidences.append(float(confidence))
+                    class_ids.append(class_id)
+
+        # 비최대 억제를 사용하여 중복된 박스 제거
+        idxs = cv2.dnn.NMSBoxes(boxes, confidences, 0.5, 0.3)  # NMS 임계값
+
+        # 결과 이미지에 바운딩 박스와 라벨 그리기
+        if len(idxs) > 0:
+            for i in idxs.flatten():
+                (x, y) = (boxes[i][0], boxes[i][1])
+                (w, h) = (boxes[i][2], boxes[i][3])
+                color = [int(c) for c in COLORS[class_ids[i]]]                              # 색상 랜덤 지정
+                cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)                      # 박스 그리기
+                text = "{} : {:.2f}%".format(classes[class_ids[i]], confidences[i] * 100)   # 텍스트
+                y = y - 15 if y - 15 > 15 else y + 15                                       # 텍스트 상자 위에 표시
+                cv2.putText(frame, text, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)   # 라벨 그리기
+
+
+        # display 실행
+        display_frame(frame)
+
+        # 현재 프레임에 맞게 슬라이더 위치 업데이트
+        current_frame = int(vs.get(cv2.CAP_PROP_POS_FRAMES))
+        slider.set(current_frame)
+
+    # 현재 재생 시간 업데이트
+    current_time = int(current_frame / original_fps)
+    time_str = "{:02d}:{:02d}".format(current_time // 60, current_time % 60)
+    time_label.config(text=time_str)
+
+    # 다음 프레임 재생 간격 설정 (원본 비디오의 FPS에 따라)
+    next_frame_delay = int(50 / original_fps)
+    root.after(next_frame_delay, update_frame)
+```
+##### 원본 영상
+
+##### 출력시 영상
+
 #### 이미지 출처
  ![Image1] <a href="https://www.pexels.com/ko-kr/photo/1108099/"> 출처 Pexels/Chevanon Photography </a>
  ![Image2] <a href="https://www.pexels.com/ko-kr/photo/8916937/"> 출처 Pexels/Lu Li </a>
