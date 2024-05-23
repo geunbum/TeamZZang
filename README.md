@@ -44,7 +44,7 @@ Yolo 설치 가이드
 $ python
 >>> import cv2
 ```
-간단한 코드 설명
+## 간단한 코드 설명
 ### Yolo 파일 로드
 ```bash
 import numpy as np
@@ -66,6 +66,7 @@ layer_name = net.getLayerNames()
 # 출력 레이어 이름 가져오기
 output_layers = [layer_name[i - 1] for i in net.getUnconnectedOutLayers()]
 ```
+## Image Code
 ### 이미지 로드 및 크기 조절
 ```bash
 def load_image():
@@ -138,7 +139,8 @@ def load_image():
   <figcaption></figcaption>
 </figure>
 
-#### 비디오 로드
+## Video Code
+### 비디오 로드
 ```bash
 # 비디오 파일 열기
 vs = cv2.VideoCapture(video_path)
@@ -162,7 +164,7 @@ original_fps = fps
 frame_buffer = []
 ```
 
-#### 객체 인식 부분
+### 객체 인식 부분
 ```bash
 # 프레임 생성
 def update_frame():
@@ -233,12 +235,11 @@ def update_frame():
                 y = y - 15 if y - 15 > 15 else y + 15                                       # 텍스트 상자 위에 표시
                 cv2.putText(frame, text, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)   # 라벨 그리기
 ```
-#### 원본 영상 / 출력시 영상
+### 원본 영상 / 출력시 영상
 
-
-#### tkinter로 버튼 설정(이미지)
+## Thinker로 만든 UI
+### tkinter로 버튼 설정(이미지)
 ```bash
-
 # refresh 버튼 설정
 refresh_button = tk.Button(root, text="Refresh", command=load_image, image=refresh_photo, compound=tk.BOTTOM, width=35, height=40, bg="white")
 refresh_button.pack(side=tk.LEFT, padx=20, pady=30)
@@ -247,10 +248,10 @@ refresh_button.pack(side=tk.LEFT, padx=20, pady=30)
 save_button = tk.Button(root, text="Save", command=saved_image, image=save_photo, compound=tk.BOTTOM, width=35, height=40, bg="white")
 save_button.pack(side=tk.RIGHT, padx=20, pady=30)
 ```
-#### 이미지 버튼 설정
+#### 실행 시 이미지 버튼 사진
 <img src="https://github.com/geunbum/TeamZZang/assets/162940362/e8607b9c-4e70-49a5-904f-42832899fb79" width="300" height="200" />
 
-#### tkinter로 버튼 설정(영상)
+### tkinter로 버튼 설정(영상)
 ```bash
 # tkinter 설정
 root = tk.Tk()
@@ -326,7 +327,7 @@ def restart():
 restart_button = tk.Button(center_frame, text="Restart", command=restart, image=restart_photo, compound=tk.BOTTOM, width=35, height=40, bg="white")
 restart_button.pack(side='left', padx=(10, 10))
 ```
-#### 영상 버튼 생성
+#### 실행 시 영상 버튼 사진
 <img src="https://github.com/geunbum/TeamZZang/assets/162940362/e3d4f4ae-5c24-430d-aef8-5ed01e38b08f" width="300" height="200" />
 
 #### 이미지 출처
@@ -334,7 +335,8 @@ restart_button.pack(side='left', padx=(10, 10))
  ![Image2] <a href="https://www.pexels.com/ko-kr/photo/8916937/"> 출처 Pexels/Lu Li </a>
 
 #### 영상 출처
- https://pixabay.com/ko/videos/암소-목장-목초지-포유-동물-199341/
+![video1] <a href="https://pixabay.com/ko/videos/암소-목장-목초지-포유-동물-199341)"> 출처 pixabay </a>
+ 
 ### - 관련주소
 #### https://kr.mathworks.com/solutions/image-video-processing/object-recognition.html
 
