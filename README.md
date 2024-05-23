@@ -233,9 +233,9 @@ def update_frame():
                 y = y - 15 if y - 15 > 15 else y + 15                                       # 텍스트 상자 위에 표시
                 cv2.putText(frame, text, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)   # 라벨 그리기
 ```
-#### 원본 영상
-
-#### 출력시 영상
+#### 원본 영상 / 출력시 영상
+<img src="https://github.com/geunbum/TeamZZang/assets/162940362/459d6207-b3cf-4582-8895-79515c7c5a51" width="300" height="200" align='left'>
+<img src="https://github.com/geunbum/TeamZZang/assets/162940362/a9e4bd06-c373-4884-a177-669f9fc6465a" width="300" height="200" align='center' />
 
 #### tkinter로 버튼 설정(이미지)
 ```bash
