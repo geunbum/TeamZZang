@@ -24,7 +24,7 @@ Yolo 설치 가이드
 ## 예시 이미지
 ### 원본 이미지 / 출력시 이미지
 <figure class="half">  
-  <a href="link"><img src="Image%20File/Image1.jpg" alt="원본사진" width="300" height="200"><a href="link"><img src="Saved_Images/Save%20Image1.jpg" alt="검출사진" width="300" height="200">
+  <a href="link"><img src="Image%20File/Image1.jpg" alt="원본사진" width="300" height="200"> <a href="link"><img src="Saved_Images/Save%20Image1.jpg" alt="검출사진" width="300" height="200">
   <figcaption></figcaption>
 </figure>
 
@@ -134,8 +134,7 @@ def load_image():
 ```
 #### 원본 이미지 / 출력시 이미지
 <figure class="half">  
-  <a href="link"><img src="Image%20File/Image2.jpg" alt="원본사진" width="300" height="200">
-  <a href="link"><img src="Saved_Images/Save%20Image2.jpg" alt="검출사진" width="300" height="200">
+  <a href="link"><img src="Image%20File/Image2.jpg" alt="원본사진" width="300" height="200"> <a href="link"><img src="Saved_Images/Save%20Image2.jpg" alt="검출사진" width="300" height="200">
   <figcaption></figcaption>
 </figure>
 
