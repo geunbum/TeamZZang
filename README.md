@@ -249,6 +249,7 @@ save_button = tk.Button(root, text="Save", command=saved_image, image=save_photo
 save_button.pack(side=tk.RIGHT, padx=20, pady=30)
 ```
 #### 이미지 버튼 설정
+ <img ![EMB00002fcc24aa](https://github.com/geunbum/TeamZZang/assets/162940362/5f36bce6-d2a2-4676-8d66-e37a5b70f7a3) width="300" height="200">
 
 #### tkinter로 버튼 설정(영상)
 ```bash
