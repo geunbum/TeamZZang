@@ -235,6 +235,7 @@ def update_frame():
 ```
 #### 원본 영상 / 출력시 영상
 <img src="https://github.com/geunbum/TeamZZang/assets/162940362/459d6207-b3cf-4582-8895-79515c7c5a51" width="300" height="200" align='left'>
+
 <img src="https://github.com/geunbum/TeamZZang/assets/162940362/a9e4bd06-c373-4884-a177-669f9fc6465a" width="300" height="200" align='center' />
 
 #### tkinter로 버튼 설정(이미지)
