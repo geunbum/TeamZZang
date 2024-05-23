@@ -251,7 +251,7 @@ save_button = tk.Button(root, text="Save", command=saved_image, image=save_photo
 save_button.pack(side=tk.RIGHT, padx=20, pady=30)
 ```
 #### 실행 시 이미지 버튼 사진
-<img src="https://github.com/geunbum/TeamZZang/assets/162940362/e8607b9c-4e70-49a5-904f-42832899fb79" width="300" height="400" />
+<img src="https://github.com/geunbum/TeamZZang/assets/162940362/e8607b9c-4e70-49a5-904f-42832899fb79" width="300" height="300" />
 
 ### tkinter로 버튼 설정(영상)
 ```bash
@@ -330,7 +330,7 @@ restart_button = tk.Button(center_frame, text="Restart", command=restart, image=
 restart_button.pack(side='left', padx=(10, 10))
 ```
 #### 실행 시 영상 버튼 사진
-<img src="https://github.com/geunbum/TeamZZang/assets/162940362/e3d4f4ae-5c24-430d-aef8-5ed01e38b08f" width="300" height="400" />
+<img src="https://github.com/geunbum/TeamZZang/assets/162940362/e3d4f4ae-5c24-430d-aef8-5ed01e38b08f" width="300" height="300" />
 
 ### 이미지 출처
  * #### <a href="https://www.pexels.com/ko-kr/photo/1108099/"> 출처 Pexels/Chevanon Photography </a>
