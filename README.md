@@ -333,7 +333,9 @@ restart_button.pack(side='left', padx=(10, 10))
 #### 이미지 출처
  ![Image1] <a href="https://www.pexels.com/ko-kr/photo/1108099/"> 출처 Pexels/Chevanon Photography </a>
  ![Image2] <a href="https://www.pexels.com/ko-kr/photo/8916937/"> 출처 Pexels/Lu Li </a>
- 
+
+#### 영상 출처
+ https://pixabay.com/ko/videos/암소-목장-목초지-포유-동물-199341/
 ### - 관련주소
 #### https://kr.mathworks.com/solutions/image-video-processing/object-recognition.html
 
