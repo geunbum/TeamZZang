@@ -1,38 +1,37 @@
 ## 이미지 & 영상 객체 인식 및 검출
 > Yolo 모델을 사용하여 OpenCV로 인식 및 검출
 
-YOLO란?
+## YOLO란?
 > YOLO(You Only Look Once)는 물체 검출(Object Detection)에서 대표적인 딥러닝 모델이라고 할 수 있습니다. 물체 검출(Object Detection)은 이미지 내에 존재하는 물체를 찾고, 이들을 구분하는 기술입니다. 영상처리나 CV분야에서 기본적이고 또 많이 쓰는 기법입니다. YOLO(You Only Look Once)모델은 말 그대로 이미지를 한번만 보고 바로 물체를 검출하는 딥러닝 기술을 이용한 물체 검출 모델입니다.
 > YOLO의 특징은 3가지 정도 있습니다.
-  1. 이미지 전체를 한 번만 본다.
-  2. 통합된 모델을 사용해 간단합니다.
-  3. 기존의 모델보다 빠른 성능으로 실시간 객체 검출이 가능합니다.
+  > 1. 이미지 전체를 한 번만 본다.
+  > 2. 통합된 모델을 사용해 간단합니다.
+  > 3. 기존의 모델보다 빠른 성능으로 실시간 객체 검출이 가능합니다.
   빠르고 간단한 장점이 있지만, 작은 객체의 인식률이 떨어진다는 단점도 있습니다.
 
-Yolo 설치 가이드
+### Yolo 설치 가이드
 > yolov3.weight, yolov3.cfg, coco.name 파일
   > 드라이브 주소
   * #### https://drive.google.com/file/d/1gglYx1BXLOFQ0ettKLMpozoc6In8G2xq/view
-  > 참고 GitHub 주소
+  > 설치 참고 GitHub 주소
   * #### https://github.com/patrick013/Object-Detection---Yolov3/blob/master/model/yolov3.weights
 
-객체 인식이란?
+## 객체 인식이란?
 > 객체 인식은 이미지 또는 비디오 상의 객체를 식별하는 컴퓨터 비전 기술입니다.
   객체 인식은 딥러닝과 머신 러닝 알고리즘을 통해 산출되는 핵심 기술입니다.
   사람은 사진 또는 비디오를 볼 때 인물, 물체, 장면 및 시각적 세부 사항을 쉽게 알아챌 수 있습니다.
 
-## 예시 이미지
+### > 참고 자료
+  * #### https://velog.io/@hhhong/Object-Detection-with-YOLO
+  * #### https://brunch.co.kr/@aischool/11
+  * #### https://kr.mathworks.com/solutions/image-video-processing/object-recognition.html
+    
+## 객체 인식 예시 이미지
 ### 원본 이미지 / 출력시 이미지
 <figure class="half">  
   <a href="link"><img src="Image%20File/Image1.jpg" alt="원본사진" width="300" height="200"> <a href="link"><img src="Saved_Images/Save%20Image1.jpg" alt="검출사진" width="300" height="200">
   <figcaption></figcaption>
 </figure>
-
-
-#### > 참고 자료
-  * #### https://velog.io/@hhhong/Object-Detection-with-YOLO
-  * #### https://brunch.co.kr/@aischool/11
-  * #### https://kr.mathworks.com/solutions/image-video-processing/object-recognition.html
 
 ## 내 컴퓨터에 OpenCV 설치하자
 
@@ -44,6 +43,7 @@ Yolo 설치 가이드
 $ python
 >>> import cv2
 ```
+
 ## 간단한 코드 설명
 ### Yolo 파일 로드
 ```bash
@@ -163,8 +163,7 @@ writer = None
 original_fps = fps
 frame_buffer = []
 ```
-
-### 객체 인식 부분
+### 영상 프레임 설정
 ```bash
 # 프레임 생성
 def update_frame():
@@ -192,7 +191,9 @@ def update_frame():
         frame = imutils.resize(frame, width=800)
         if W is None or H is None:
             (H, W) = frame.shape[:2]
-
+```
+### 객체 인식 부분
+```bash
         # 이미지를 블롭으로 변환 (YOLO 네트워크에 입력하기 위한 전처리)
         blob = cv2.dnn.blobFromImage(frame, 1 / 255.0, (416, 416), swapRB=True, crop=False)
         net.setInput(blob)
@@ -235,7 +236,8 @@ def update_frame():
                 y = y - 15 if y - 15 > 15 else y + 15                                       # 텍스트 상자 위에 표시
                 cv2.putText(frame, text, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)   # 라벨 그리기
 ```
-### 원본 영상 / 출력시 영상
+### 출력시 영상
+영상
 
 ## Thinker로 만든 UI
 ### tkinter로 버튼 설정(이미지)
@@ -249,7 +251,7 @@ save_button = tk.Button(root, text="Save", command=saved_image, image=save_photo
 save_button.pack(side=tk.RIGHT, padx=20, pady=30)
 ```
 #### 실행 시 이미지 버튼 사진
-<img src="https://github.com/geunbum/TeamZZang/assets/162940362/e8607b9c-4e70-49a5-904f-42832899fb79" width="300" height="200" />
+<img src="https://github.com/geunbum/TeamZZang/assets/162940362/e8607b9c-4e70-49a5-904f-42832899fb79" width="300" height="500" />
 
 ### tkinter로 버튼 설정(영상)
 ```bash
@@ -328,14 +330,14 @@ restart_button = tk.Button(center_frame, text="Restart", command=restart, image=
 restart_button.pack(side='left', padx=(10, 10))
 ```
 #### 실행 시 영상 버튼 사진
-<img src="https://github.com/geunbum/TeamZZang/assets/162940362/e3d4f4ae-5c24-430d-aef8-5ed01e38b08f" width="300" height="200" />
+<img src="https://github.com/geunbum/TeamZZang/assets/162940362/e3d4f4ae-5c24-430d-aef8-5ed01e38b08f" width="300" height="500" />
 
-#### 이미지 출처
- ![Image1] <a href="https://www.pexels.com/ko-kr/photo/1108099/"> 출처 Pexels/Chevanon Photography </a>
- ![Image2] <a href="https://www.pexels.com/ko-kr/photo/8916937/"> 출처 Pexels/Lu Li </a>
+### 이미지 출처
+ * #### <a href="https://www.pexels.com/ko-kr/photo/1108099/"> 출처 Pexels/Chevanon Photography </a>
+ * #### <a href="https://www.pexels.com/ko-kr/photo/8916937/"> 출처 Pexels/Lu Li </a>
 
-#### 영상 출처
-![video1] <a href="https://pixabay.com/ko/videos/암소-목장-목초지-포유-동물-199341)"> 출처 pixabay </a>
+### 영상 출처
+* #### <a href="https://pixabay.com/ko/videos/암소-목장-목초지-포유-동물-199341)"> 출처 pixabay </a>
  
 ### - 관련주소
 #### https://kr.mathworks.com/solutions/image-video-processing/object-recognition.html
