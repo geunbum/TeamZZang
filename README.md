@@ -237,7 +237,9 @@ def update_frame():
                 cv2.putText(frame, text, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)   # 라벨 그리기
 ```
 ### 출력시 영상
-영상
+![이미지](https://github.com/geunbum/TeamZZang/assets/162940362/eb75646d-ee92-4b3d-97d8-ba777bc12eb9)
+<img width="1000" alt="image" src="https://github.com/geunbum/TeamZZang/assets/162940362/f97b5c43-7ec3-415b-8049-19ae92ed3ccc">
+
 
 ## Thinker로 만든 UI
 ### tkinter로 버튼 설정(이미지)
