@@ -238,7 +238,7 @@ def update_frame():
 ```
 ### 원본 영상 / 출력시 영상
 <figure class="half">  
-  <a href="link"><img src="https://github.com/geunbum/TeamZZang/assets/162940362/eb75646d-ee92-4b3d-97d8-ba777bc12eb9" width="300" height="200"> <a href="link"><img src="https://github.com/geunbum/TeamZZang/assets/162940362/f97b5c43-7ec3-415b-8049-19ae92ed3ccc" alt="검출사진" width="300" height="200">
+  <a href="link"><img src="https://github.com/geunbum/TeamZZang/assets/162940362/eb75646d-ee92-4b3d-97d8-ba777bc12eb9" width="300" height="200"> <a href="link"><img src="https://github.com/geunbum/TeamZZang/assets/162940362/f97b5c43-7ec3-415b-8049-19ae92ed3ccc" alt="검출사진" width="300" height="200"> <a href="link"><img src="https://github.com/geunbum/TeamZZang/assets/162940362/2030b3ab-8fb1-4dd4-aba2-b60bb5248dc4" alt="검출사진" width="300" height="200">
   <figcaption></figcaption>
 </figure>
 
@@ -333,10 +333,7 @@ restart_button = tk.Button(center_frame, text="Restart", command=restart, image=
 restart_button.pack(side='left', padx=(10, 10))
 ```
 #### 실행 시 영상 버튼 사진
-<figure class="half">  
-  <a href="link"><img src="https://github.com/geunbum/TeamZZang/assets/162940362/e3d4f4ae-5c24-430d-aef8-5ed01e38b08f" width="300" height="200"> <a href="link"><img src="https://github.com/geunbum/TeamZZang/assets/162940362/2030b3ab-8fb1-4dd4-aba2-b60bb5248dc4" alt="검출사진" width="300" height="200">
-  <figcaption></figcaption>
-</figure>
+<img src="https://github.com/geunbum/TeamZZang/assets/162940362/e3d4f4ae-5c24-430d-aef8-5ed01e38b08f" width="300" height="200">
     
 ### 이미지 출처
  * #### <a href="https://www.pexels.com/ko-kr/photo/1108099/"> 출처 Pexels/Chevanon Photography </a>
