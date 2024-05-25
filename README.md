@@ -333,8 +333,11 @@ restart_button = tk.Button(center_frame, text="Restart", command=restart, image=
 restart_button.pack(side='left', padx=(10, 10))
 ```
 #### 실행 시 영상 버튼 사진
-<img src="https://github.com/geunbum/TeamZZang/assets/162940362/e3d4f4ae-5c24-430d-aef8-5ed01e38b08f" width="300" height="300" />
-
+<figure class="half">  
+  <a href="link"><img src="https://github.com/geunbum/TeamZZang/assets/162940362/e3d4f4ae-5c24-430d-aef8-5ed01e38b08f" width="300" height="200"> <a href="link"><img src="https://github.com/geunbum/TeamZZang/assets/162940362/2030b3ab-8fb1-4dd4-aba2-b60bb5248dc4" alt="검출사진" width="300" height="200">
+  <figcaption></figcaption>
+</figure>
+    
 ### 이미지 출처
  * #### <a href="https://www.pexels.com/ko-kr/photo/1108099/"> 출처 Pexels/Chevanon Photography </a>
  * #### <a href="https://www.pexels.com/ko-kr/photo/8916937/"> 출처 Pexels/Lu Li </a>
